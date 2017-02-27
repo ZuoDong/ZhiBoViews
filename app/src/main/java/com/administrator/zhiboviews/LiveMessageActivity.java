@@ -9,7 +9,7 @@ import com.administrator.zhiboviews.bean.MessageBean;
 import com.administrator.zhiboviews.widget.LiveMessagePanel;
 
 /**
- * Created by Administrator on 2016/10/17.
+ * Created by zuo on 2016/10/17.
  */
 public class LiveMessageActivity extends AppCompatActivity{
 

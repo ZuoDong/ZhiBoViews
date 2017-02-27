@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.administrator.zhiboviews">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,6 +18,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".LiveMessageActivity" />
+        <activity android:name=".DianZanActivity" />
+        <activity
+            android:name=".ShuRuActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity android:name=".RefreshRecyclerViewActivity" />
+        <activity android:name=".VideoPlayerActivity"></activity>
+        <activity android:name=".GuidVideoActivity"></activity>
     </application>
 
 </manifest>
