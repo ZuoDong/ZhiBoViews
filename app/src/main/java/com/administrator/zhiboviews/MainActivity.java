@@ -2,12 +2,20 @@ package com.administrator.zhiboviews;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 
+import com.administrator.zhiboviews.dialog.ApplicationDialog;
+import com.administrator.zhiboviews.service.DialogService;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +41,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //视频重启播放
         Button btn_6 = (Button) findViewById(R.id.btn_6);
         btn_6.setOnClickListener(this);
+
+        //全局dialog
+        Button btn_7 = (Button) findViewById(R.id.btn_7);
+        btn_7.setOnClickListener(this);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                intent = new Intent(MainActivity.this,DialogService.class);
+                startService(intent);
+//                ApplicationDialog dialog = new ApplicationDialog(MainActivity.this);
+//                dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_ATTACHED_DIALOG);
+//                dialog.show();
+            }
+        },5000);
     }
 
     @Override
@@ -66,6 +88,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, GuidVideoActivity.class));
                 Log.i("zuo","GuidVideoActivity");
                 break;
+
+            case R.id.btn_7:
+                startActivity(new Intent(this, ApplicationDialogActivity.class));
+                Log.i("zuo","GuidVideoActivity");
+                break;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        stopService(intent);
     }
 }
