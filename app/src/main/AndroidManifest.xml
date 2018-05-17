@@ -6,10 +6,10 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".MyApplication"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
@@ -29,8 +29,11 @@
         <activity android:name=".RefreshRecyclerViewActivity" />
         <activity android:name=".VideoPlayerActivity" />
         <activity android:name=".GuidVideoActivity" />
-        <activity android:name=".ApplicationDialogActivity"></activity>
-        <service android:name=".service.DialogService"/>
+        <activity android:name=".ApplicationDialogActivity" />
+
+        <service android:name=".service.DialogService" />
+
+        <activity android:name=".AnimatiorActivity"></activity>
     </application>
 
 </manifest>

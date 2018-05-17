@@ -43,18 +43,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_6.setOnClickListener(this);
 
         //全局dialog
-        Button btn_7 = (Button) findViewById(R.id.btn_7);
-        btn_7.setOnClickListener(this);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                intent = new Intent(MainActivity.this,DialogService.class);
-                startService(intent);
+//        Button btn_7 = (Button) findViewById(R.id.btn_7);
+//        btn_7.setOnClickListener(this);
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                intent = new Intent(MainActivity.this,DialogService.class);
+//                startService(intent);
 //                ApplicationDialog dialog = new ApplicationDialog(MainActivity.this);
 //                dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_ATTACHED_DIALOG);
 //                dialog.show();
-            }
-        },5000);
+//            }
+//        },5000);
+
+        //动画练习
+        Button btn_8 = (Button) findViewById(R.id.btn_8);
+        btn_8.setOnClickListener(this);
     }
 
     @Override
@@ -90,8 +94,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.btn_7:
-                startActivity(new Intent(this, ApplicationDialogActivity.class));
-                Log.i("zuo","GuidVideoActivity");
+//                startActivity(new Intent(this, ApplicationDialogActivity.class));
+//                Log.i("zuo","GuidVideoActivity");
+                break;
+
+            case R.id.btn_8:
+                startActivity(new Intent(this,AnimatiorActivity.class));
+                Log.i("zuo","AnimatiorActivity");
                 break;
         }
     }
@@ -99,6 +108,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        stopService(intent);
+//        stopService(intent);
     }
 }
